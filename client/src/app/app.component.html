@@ -1,0 +1,27 @@
+
+<nav class="navbar fixed-top navbar-expand-md flex-nowrap navbar-new-top">
+  <a href="/" class="navbar-brand"><img src="#" alt=""/>Bootstrap 4</a>
+  <ul class="nav navbar-nav mr-auto"></ul>
+  <ul class="navbar-nav flex-row">
+      <li class="nav-item">
+          <a class="nav-link px-2" [routerLink]="['/register']" routerLinkActive="router-link-active" >Register</a>
+      </li>
+      <li class="nav-item">
+          <a class="nav-link px-2" routerLink="/login">Login</a>
+      </li>
+      <li *ngIf="userservice.loggedIn() && role.isUser()" class="nav-item">
+          <a class="nav-link px-2" routerLink="/home">Home</a>
+      </li>
+      <li *ngIf="userservice.loggedIn() && role.isAdmin()" class="nav-item">
+          <a class="nav-link px-2" routerLink="/admin">Admin</a>
+      </li>
+      <li *ngIf="userservice.loggedIn() && role.isModerator()" class="nav-item">
+          <a class="nav-link px-2" routerLink="/moderator">Moderator</a>
+      </li>
+  </ul>
+  <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbar2">
+      <span class="navbar-toggler-icon"></span>
+  </button>
+</nav>
+
+<router-outlet></router-outlet>
